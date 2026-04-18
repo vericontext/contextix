@@ -123,7 +123,9 @@ SignalEvent ──causes──▶ SignalEvent
 
 **Edge types:** `causes`, `caused_by`, `correlates`, `involves`, `influences`, `precedes`, `contradicts`
 
-Every edge has a **confidence score** (0–1) and an **evidence string** — no black-box assertions.
+Every edge has a **confidence score** (0–1), an **evidence string**, and a **bi-temporal model** (`valid_from` / `valid_until`) — expired relations are preserved so causal chains can be reconstructed at any point in time.
+
+**Entity resolution:** fuzzy deduplication merges "BTC" / "Bitcoin" / "bitcoin" into a single canonical node with an alias list.
 
 **Domains:** `crypto`, `macro`, `ai`, `media`, `geopolitics` (extensible)
 
