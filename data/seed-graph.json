@@ -1,0 +1,1274 @@
+{
+  "nodes": [
+    {
+      "id": "evt_macro_a1b2c3",
+      "type": "event",
+      "domain": "macro",
+      "title": "Fed holds rates steady at 4.25-4.50%",
+      "description": "The Federal Reserve maintained its benchmark interest rate at 4.25-4.50% for the third consecutive meeting, citing persistent inflation concerns despite softening labor market data. Chair Powell signaled openness to a June cut if data supports it.",
+      "detectedAt": "2026-03-28T18:00:00Z",
+      "importance": 9,
+      "confidence": 0.98,
+      "sources": [
+        { "name": "Federal Reserve", "url": "https://www.federalreserve.gov/monetarypolicy.htm" },
+        { "name": "Reuters", "url": "https://www.reuters.com/markets/us/fed-holds-rates-steady" }
+      ],
+      "tags": ["fed", "interest-rates", "monetary-policy", "fomc"],
+      "data": { "priorRate": "4.25-4.50%", "decision": "hold", "voteCount": "11-1" }
+    },
+    {
+      "id": "evt_macro_d4e5f6",
+      "type": "event",
+      "domain": "macro",
+      "title": "March CPI comes in at 2.4% YoY, below expectations",
+      "description": "Bureau of Labor Statistics reported March CPI at 2.4% year-over-year, below the 2.6% consensus estimate. Core CPI fell to 2.8%, the lowest reading since early 2022. Markets immediately priced in higher probability of June rate cut.",
+      "detectedAt": "2026-03-30T12:30:00Z",
+      "importance": 9,
+      "confidence": 0.99,
+      "sources": [
+        { "name": "Bureau of Labor Statistics", "url": "https://www.bls.gov/cpi/" },
+        { "name": "Bloomberg", "url": "https://www.bloomberg.com/news/cpi-march-2026" }
+      ],
+      "tags": ["cpi", "inflation", "economic-data"],
+      "data": { "cpiYoY": 2.4, "coreCpiYoY": 2.8, "consensus": 2.6 }
+    },
+    {
+      "id": "evt_macro_g7h8i9",
+      "type": "event",
+      "domain": "macro",
+      "title": "DXY drops to 101.2 on dovish Fed outlook",
+      "description": "The US Dollar Index fell sharply to 101.2 from 103.8, its lowest level in 14 months, as markets digested the cooler CPI print and dovish Fed commentary. The weakening dollar boosted risk assets across the board.",
+      "detectedAt": "2026-03-31T09:00:00Z",
+      "importance": 7,
+      "confidence": 0.95,
+      "sources": [
+        { "name": "TradingView", "url": "https://www.tradingview.com/symbols/TVC-DXY/" }
+      ],
+      "tags": ["dxy", "usd", "forex", "dollar-weakness"],
+      "data": { "dxyLevel": 101.2, "priorLevel": 103.8, "changePercent": -2.5 }
+    },
+    {
+      "id": "evt_macro_j1k2l3",
+      "type": "event",
+      "domain": "macro",
+      "title": "US 10Y Treasury yield falls to 3.82%",
+      "description": "The benchmark 10-year Treasury yield declined to 3.82%, down from 4.15% a week earlier, reflecting growing expectations of monetary easing. The yield curve un-inverted for the first time since 2023.",
+      "detectedAt": "2026-03-31T15:00:00Z",
+      "importance": 7,
+      "confidence": 0.96,
+      "sources": [
+        { "name": "CNBC", "url": "https://www.cnbc.com/quotes/US10Y" }
+      ],
+      "tags": ["treasuries", "yields", "bonds", "rate-expectations"],
+      "data": { "yield10Y": 3.82, "priorYield": 4.15 }
+    },
+    {
+      "id": "evt_macro_m4n5o6",
+      "type": "event",
+      "domain": "macro",
+      "title": "ECB cuts rates by 25bps to 3.25%",
+      "description": "The European Central Bank cut its main refinancing rate by 25 basis points to 3.25%, the second cut this cycle. President Lagarde cited improving inflation dynamics in the eurozone and signaled further easing ahead.",
+      "detectedAt": "2026-04-01T12:45:00Z",
+      "importance": 8,
+      "confidence": 0.97,
+      "sources": [
+        { "name": "ECB", "url": "https://www.ecb.europa.eu/mopo/decisions/html/index.en.html" }
+      ],
+      "tags": ["ecb", "rate-cut", "europe", "monetary-policy"],
+      "data": { "newRate": 3.25, "cutBps": 25 }
+    },
+    {
+      "id": "evt_macro_p7q8r9",
+      "type": "event",
+      "domain": "macro",
+      "title": "US unemployment claims rise to 245K",
+      "description": "Initial jobless claims for the week ending March 28 rose to 245,000 from 228,000, slightly above expectations. Continuing claims also ticked up, suggesting a gradual cooling in the labor market.",
+      "detectedAt": "2026-04-02T12:30:00Z",
+      "importance": 5,
+      "confidence": 0.94,
+      "sources": [
+        { "name": "Department of Labor", "url": "https://www.dol.gov/ui/data.pdf" }
+      ],
+      "tags": ["unemployment", "labor-market", "jobless-claims"],
+      "data": { "initialClaims": 245000, "priorClaims": 228000 }
+    },
+    {
+      "id": "evt_macro_s1t2u3",
+      "type": "event",
+      "domain": "macro",
+      "title": "Global M2 money supply reaches new all-time high",
+      "description": "Combined global M2 money supply across major economies (US, EU, China, Japan) reached $108.4 trillion, surpassing the previous peak. Analysts note historical correlation between M2 expansion and Bitcoin price appreciation with a ~3 month lag.",
+      "detectedAt": "2026-04-03T08:00:00Z",
+      "importance": 7,
+      "confidence": 0.88,
+      "sources": [
+        { "name": "FRED", "url": "https://fred.stlouisfed.org/series/M2SL" },
+        { "name": "MacroMicro", "url": "https://www.macromicro.me/collections/34/us-money-supply" }
+      ],
+      "tags": ["m2", "money-supply", "liquidity", "global-macro"],
+      "data": { "globalM2Trillions": 108.4 }
+    },
+    {
+      "id": "evt_macro_v4w5x6",
+      "type": "event",
+      "domain": "macro",
+      "title": "NVIDIA reports Q1 FY2027 earnings, beats estimates by 18%",
+      "description": "NVIDIA posted Q1 revenue of $44.2B vs $37.5B expected, driven by surging demand for Blackwell Ultra GPUs from hyperscalers. CEO Jensen Huang projected continued acceleration in AI infrastructure spending through 2027.",
+      "detectedAt": "2026-04-02T20:00:00Z",
+      "importance": 8,
+      "confidence": 0.99,
+      "sources": [
+        { "name": "NVIDIA IR", "url": "https://investor.nvidia.com/financial-info/quarterly-results" },
+        { "name": "The Verge", "url": "https://www.theverge.com/nvidia-q1-2027-earnings" }
+      ],
+      "tags": ["nvidia", "earnings", "ai-infrastructure", "semiconductors"],
+      "data": { "revenueB": 44.2, "estimateB": 37.5, "beatPercent": 18 }
+    },
+    {
+      "id": "evt_crypto_a1b2c3",
+      "type": "event",
+      "domain": "crypto",
+      "title": "Bitcoin breaks $92K on macro tailwinds",
+      "description": "Bitcoin surged past $92,000 for the first time since January, driven by the softer CPI print, weakening dollar, and renewed ETF inflows. The move triggered $340M in short liquidations across major exchanges.",
+      "detectedAt": "2026-03-31T14:00:00Z",
+      "importance": 9,
+      "confidence": 0.97,
+      "sources": [
+        { "name": "CoinGecko", "url": "https://www.coingecko.com/en/coins/bitcoin" },
+        { "name": "CoinDesk", "url": "https://www.coindesk.com/bitcoin-92k-breakout" }
+      ],
+      "tags": ["bitcoin", "btc", "price-action", "breakout", "short-liquidations"],
+      "data": { "price": 92150, "shortLiquidationsM": 340, "volume24hB": 48.2 }
+    },
+    {
+      "id": "evt_crypto_d4e5f6",
+      "type": "event",
+      "domain": "crypto",
+      "title": "Spot Bitcoin ETF sees $1.2B single-day net inflow",
+      "description": "US spot Bitcoin ETFs recorded a combined $1.2 billion in net inflows, the highest single-day figure since the initial launch week. BlackRock's IBIT accounted for $680M, followed by Fidelity's FBTC at $310M.",
+      "detectedAt": "2026-03-31T20:30:00Z",
+      "importance": 9,
+      "confidence": 0.96,
+      "sources": [
+        { "name": "Bloomberg ETF", "url": "https://www.bloomberg.com/etf-flows" },
+        { "name": "The Block", "url": "https://www.theblock.co/data/crypto-markets/bitcoin-etf" }
+      ],
+      "tags": ["bitcoin-etf", "ibit", "fbtc", "institutional-flows"],
+      "data": { "totalInflowB": 1.2, "ibitInflowM": 680, "fbtcInflowM": 310 }
+    },
+    {
+      "id": "evt_crypto_g7h8i9",
+      "type": "event",
+      "domain": "crypto",
+      "title": "Ethereum reclaims $3,800 amid ETH/BTC ratio recovery",
+      "description": "Ethereum rallied to $3,800, gaining 12% in 48 hours as the ETH/BTC ratio bounced from its multi-year low. The move coincided with increased staking deposits and anticipation of the Pectra upgrade mainnet date announcement.",
+      "detectedAt": "2026-04-01T10:00:00Z",
+      "importance": 8,
+      "confidence": 0.94,
+      "sources": [
+        { "name": "CoinGecko", "url": "https://www.coingecko.com/en/coins/ethereum" }
+      ],
+      "tags": ["ethereum", "eth", "price-action", "eth-btc-ratio"],
+      "data": { "price": 3800, "ethBtcRatio": 0.0412, "gainPercent48h": 12 }
+    },
+    {
+      "id": "evt_crypto_j1k2l3",
+      "type": "event",
+      "domain": "crypto",
+      "title": "DeFi TVL surges to $128B, highest since May 2022",
+      "description": "Total Value Locked across DeFi protocols hit $128 billion, driven by renewed confidence in crypto markets and attractive yield opportunities. Aave, Lido, and EigenLayer led the growth with combined TVL exceeding $65B.",
+      "detectedAt": "2026-04-02T06:00:00Z",
+      "importance": 7,
+      "confidence": 0.92,
+      "sources": [
+        { "name": "DefiLlama", "url": "https://defillama.com/" }
+      ],
+      "tags": ["defi", "tvl", "aave", "lido", "eigenlayer"],
+      "data": { "tvlB": 128, "aaveTvlB": 28, "lidoTvlB": 22, "eigenLayerTvlB": 15 }
+    },
+    {
+      "id": "evt_crypto_m4n5o6",
+      "type": "event",
+      "domain": "crypto",
+      "title": "AI token sector rallies 35% on NVIDIA earnings beat",
+      "description": "The AI token sector (FET, RENDER, TAO, NEAR) surged 35% collectively following NVIDIA's blowout earnings. Fetch.ai (FET) led with a 52% gain as traders drew connections between AI infrastructure demand and decentralized AI compute networks.",
+      "detectedAt": "2026-04-03T02:00:00Z",
+      "importance": 8,
+      "confidence": 0.91,
+      "sources": [
+        { "name": "CoinGecko", "url": "https://www.coingecko.com/en/categories/artificial-intelligence" },
+        { "name": "The Block", "url": "https://www.theblock.co/post/ai-tokens-nvidia-earnings" }
+      ],
+      "tags": ["ai-tokens", "fetch-ai", "render", "bittensor", "narrative"],
+      "data": { "sectorGainPercent": 35, "fetGainPercent": 52, "renderGainPercent": 28, "taoGainPercent": 41 }
+    },
+    {
+      "id": "evt_crypto_p7q8r9",
+      "type": "event",
+      "domain": "crypto",
+      "title": "Solana DEX volume hits $18B weekly, surpassing Ethereum",
+      "description": "Solana-based decentralized exchanges processed $18.2 billion in weekly volume, overtaking Ethereum's $15.8B for the first time since November 2025. Jupiter and Raydium dominated with 72% combined share.",
+      "detectedAt": "2026-04-01T16:00:00Z",
+      "importance": 7,
+      "confidence": 0.93,
+      "sources": [
+        { "name": "DefiLlama", "url": "https://defillama.com/dexs/chains" }
+      ],
+      "tags": ["solana", "dex", "jupiter", "raydium", "volume"],
+      "data": { "solanaDexVolumeB": 18.2, "ethDexVolumeB": 15.8 }
+    },
+    {
+      "id": "evt_crypto_s1t2u3",
+      "type": "event",
+      "domain": "crypto",
+      "title": "BlackRock files for Solana ETF with SEC",
+      "description": "BlackRock submitted an S-1 filing for a spot Solana ETF, the first from a major asset manager. The filing triggered a 22% SOL price rally and renewed speculation about broader altcoin ETF approvals under the new SEC leadership.",
+      "detectedAt": "2026-04-02T14:00:00Z",
+      "importance": 9,
+      "confidence": 0.95,
+      "sources": [
+        { "name": "SEC EDGAR", "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany" },
+        { "name": "CoinDesk", "url": "https://www.coindesk.com/blackrock-solana-etf-filing" }
+      ],
+      "tags": ["solana", "etf", "blackrock", "sec", "regulation"],
+      "data": { "solPriceReaction": 22, "filingType": "S-1" }
+    },
+    {
+      "id": "evt_crypto_v4w5x6",
+      "type": "event",
+      "domain": "crypto",
+      "title": "Tether treasury mints $2B USDT on Ethereum and Tron",
+      "description": "Tether minted $2 billion in USDT across Ethereum ($1.2B) and Tron ($800M) in a single day, a strong indicator of incoming buy-side demand from OTC desks and institutional participants.",
+      "detectedAt": "2026-03-30T04:00:00Z",
+      "importance": 7,
+      "confidence": 0.94,
+      "sources": [
+        { "name": "Whale Alert", "url": "https://whale-alert.io/" },
+        { "name": "Tether Transparency", "url": "https://tether.to/en/transparency/" }
+      ],
+      "tags": ["tether", "usdt", "stablecoin", "minting", "liquidity"],
+      "data": { "mintedB": 2.0, "ethMintB": 1.2, "tronMintB": 0.8 }
+    },
+    {
+      "id": "evt_crypto_y7z8a9",
+      "type": "event",
+      "domain": "crypto",
+      "title": "MicroStrategy acquires additional 12,000 BTC",
+      "description": "MicroStrategy announced the purchase of 12,000 BTC for approximately $1.1 billion at an average price of $91,500. The company now holds 264,000 BTC worth $24.3 billion, representing 1.26% of total Bitcoin supply.",
+      "detectedAt": "2026-04-01T13:00:00Z",
+      "importance": 8,
+      "confidence": 0.97,
+      "sources": [
+        { "name": "MicroStrategy IR", "url": "https://www.microstrategy.com/press/bitcoin-purchase" },
+        { "name": "Bitcoin Treasuries", "url": "https://bitcointreasuries.net/" }
+      ],
+      "tags": ["microstrategy", "btc-accumulation", "corporate-treasury"],
+      "data": { "btcPurchased": 12000, "avgPrice": 91500, "totalHoldings": 264000 }
+    },
+    {
+      "id": "evt_crypto_b1c2d3",
+      "type": "event",
+      "domain": "crypto",
+      "title": "Ethereum Pectra upgrade confirmed for May 7, 2026",
+      "description": "Ethereum core developers confirmed the Pectra upgrade activation date for May 7, 2026 on mainnet. The upgrade includes EIP-7702 (account abstraction), EIP-7251 (max effective balance increase), and blob throughput improvements.",
+      "detectedAt": "2026-04-03T14:00:00Z",
+      "importance": 8,
+      "confidence": 0.96,
+      "sources": [
+        { "name": "Ethereum Foundation Blog", "url": "https://blog.ethereum.org/2026/04/03/pectra-mainnet" },
+        { "name": "Tim Beiko Twitter", "url": "https://x.com/timbeiko" }
+      ],
+      "tags": ["ethereum", "pectra", "upgrade", "eip-7702", "account-abstraction"],
+      "data": { "activationDate": "2026-05-07", "keyEIPs": ["EIP-7702", "EIP-7251", "EIP-7594"] }
+    },
+    {
+      "id": "evt_crypto_e4f5g6",
+      "type": "event",
+      "domain": "crypto",
+      "title": "Crypto total market cap exceeds $3.5 trillion",
+      "description": "The total cryptocurrency market capitalization surpassed $3.5 trillion for the first time, driven by Bitcoin's push above $92K and a broad altcoin rally. Bitcoin dominance held at 54.2% while altcoin season indicators began flashing.",
+      "detectedAt": "2026-04-02T08:00:00Z",
+      "importance": 8,
+      "confidence": 0.95,
+      "sources": [
+        { "name": "CoinGecko", "url": "https://www.coingecko.com/en/global-charts" }
+      ],
+      "tags": ["market-cap", "crypto-total", "btc-dominance", "altseason"],
+      "data": { "totalMcapT": 3.52, "btcDominance": 54.2 }
+    },
+    {
+      "id": "evt_crypto_h7i8j9",
+      "type": "event",
+      "domain": "crypto",
+      "title": "Aave deploys v4 on Ethereum mainnet with unified liquidity layer",
+      "description": "Aave Protocol launched version 4 on Ethereum mainnet featuring a unified liquidity layer, cross-chain borrowing, and dynamic interest rate curves. TVL migrated rapidly from v3, reaching $18B within 48 hours of launch.",
+      "detectedAt": "2026-04-03T10:00:00Z",
+      "importance": 7,
+      "confidence": 0.93,
+      "sources": [
+        { "name": "Aave Governance", "url": "https://governance.aave.com/" },
+        { "name": "The Defiant", "url": "https://thedefiant.io/aave-v4-launch" }
+      ],
+      "tags": ["aave", "defi", "protocol-upgrade", "lending"],
+      "data": { "v4TvlB": 18, "migrationPercent": 72 }
+    },
+    {
+      "id": "evt_crypto_k1l2m3",
+      "type": "event",
+      "domain": "crypto",
+      "title": "Bitcoin mining difficulty reaches all-time high after halving adjustment",
+      "description": "Bitcoin mining difficulty adjusted upward by 3.2% to a new all-time high of 112.4T, indicating strong miner commitment despite post-halving reward reduction. Hash rate stable at 780 EH/s.",
+      "detectedAt": "2026-04-04T00:00:00Z",
+      "importance": 6,
+      "confidence": 0.98,
+      "sources": [
+        { "name": "Mempool.space", "url": "https://mempool.space/mining" }
+      ],
+      "tags": ["bitcoin", "mining", "difficulty", "hashrate"],
+      "data": { "difficultyT": 112.4, "adjustmentPercent": 3.2, "hashRateEH": 780 }
+    },
+
+    {
+      "id": "ent_person_jerome_powell",
+      "type": "entity",
+      "entityType": "person",
+      "name": "Jerome Powell",
+      "aliases": ["Jay Powell", "Fed Chair Powell"],
+      "domain": "macro",
+      "metadata": { "role": "Chair of the Federal Reserve", "since": "2018-02-05" },
+      "firstSeen": "2026-03-28T18:00:00Z",
+      "lastSeen": "2026-04-04T00:00:00Z"
+    },
+    {
+      "id": "ent_person_christine_lagarde",
+      "type": "entity",
+      "entityType": "person",
+      "name": "Christine Lagarde",
+      "aliases": ["ECB President Lagarde"],
+      "domain": "macro",
+      "metadata": { "role": "President of the European Central Bank" },
+      "firstSeen": "2026-04-01T12:45:00Z",
+      "lastSeen": "2026-04-01T12:45:00Z"
+    },
+    {
+      "id": "ent_person_jensen_huang",
+      "type": "entity",
+      "entityType": "person",
+      "name": "Jensen Huang",
+      "aliases": ["NVIDIA CEO"],
+      "domain": "macro",
+      "metadata": { "role": "CEO of NVIDIA Corporation" },
+      "firstSeen": "2026-04-02T20:00:00Z",
+      "lastSeen": "2026-04-02T20:00:00Z"
+    },
+    {
+      "id": "ent_person_michael_saylor",
+      "type": "entity",
+      "entityType": "person",
+      "name": "Michael Saylor",
+      "aliases": ["Saylor"],
+      "domain": "crypto",
+      "metadata": { "role": "Executive Chairman of MicroStrategy" },
+      "firstSeen": "2026-04-01T13:00:00Z",
+      "lastSeen": "2026-04-01T13:00:00Z"
+    },
+    {
+      "id": "ent_person_vitalik_buterin",
+      "type": "entity",
+      "entityType": "person",
+      "name": "Vitalik Buterin",
+      "aliases": ["vitalik.eth"],
+      "domain": "crypto",
+      "metadata": { "role": "Co-founder of Ethereum" },
+      "firstSeen": "2026-04-03T14:00:00Z",
+      "lastSeen": "2026-04-03T14:00:00Z"
+    },
+    {
+      "id": "ent_person_larry_fink",
+      "type": "entity",
+      "entityType": "person",
+      "name": "Larry Fink",
+      "aliases": ["BlackRock CEO"],
+      "domain": "macro",
+      "metadata": { "role": "CEO of BlackRock" },
+      "firstSeen": "2026-03-31T20:30:00Z",
+      "lastSeen": "2026-04-02T14:00:00Z"
+    },
+    {
+      "id": "ent_org_federal_reserve",
+      "type": "entity",
+      "entityType": "organization",
+      "name": "Federal Reserve",
+      "aliases": ["The Fed", "US Federal Reserve", "FOMC"],
+      "domain": "macro",
+      "metadata": { "type": "central_bank", "country": "US" },
+      "firstSeen": "2026-03-28T18:00:00Z",
+      "lastSeen": "2026-04-04T00:00:00Z"
+    },
+    {
+      "id": "ent_org_ecb",
+      "type": "entity",
+      "entityType": "organization",
+      "name": "European Central Bank",
+      "aliases": ["ECB"],
+      "domain": "macro",
+      "metadata": { "type": "central_bank", "region": "EU" },
+      "firstSeen": "2026-04-01T12:45:00Z",
+      "lastSeen": "2026-04-01T12:45:00Z"
+    },
+    {
+      "id": "ent_org_blackrock",
+      "type": "entity",
+      "entityType": "organization",
+      "name": "BlackRock",
+      "aliases": ["BLK"],
+      "domain": "macro",
+      "metadata": { "type": "asset_manager", "aumTrillions": 11.5 },
+      "firstSeen": "2026-03-31T20:30:00Z",
+      "lastSeen": "2026-04-02T14:00:00Z"
+    },
+    {
+      "id": "ent_org_nvidia",
+      "type": "entity",
+      "entityType": "organization",
+      "name": "NVIDIA Corporation",
+      "aliases": ["NVIDIA", "NVDA"],
+      "domain": "macro",
+      "metadata": { "type": "semiconductor", "ticker": "NVDA" },
+      "firstSeen": "2026-04-02T20:00:00Z",
+      "lastSeen": "2026-04-03T02:00:00Z"
+    },
+    {
+      "id": "ent_org_microstrategy",
+      "type": "entity",
+      "entityType": "organization",
+      "name": "MicroStrategy",
+      "aliases": ["MSTR"],
+      "domain": "crypto",
+      "metadata": { "type": "public_company", "ticker": "MSTR", "btcHoldings": 264000 },
+      "firstSeen": "2026-04-01T13:00:00Z",
+      "lastSeen": "2026-04-01T13:00:00Z"
+    },
+    {
+      "id": "ent_org_tether",
+      "type": "entity",
+      "entityType": "organization",
+      "name": "Tether",
+      "aliases": ["Tether Limited", "Tether Holdings"],
+      "domain": "crypto",
+      "metadata": { "type": "stablecoin_issuer" },
+      "firstSeen": "2026-03-30T04:00:00Z",
+      "lastSeen": "2026-03-30T04:00:00Z"
+    },
+    {
+      "id": "ent_org_sec",
+      "type": "entity",
+      "entityType": "organization",
+      "name": "Securities and Exchange Commission",
+      "aliases": ["SEC"],
+      "domain": "macro",
+      "metadata": { "type": "regulator", "country": "US" },
+      "firstSeen": "2026-04-02T14:00:00Z",
+      "lastSeen": "2026-04-02T14:00:00Z"
+    },
+    {
+      "id": "ent_org_aave",
+      "type": "entity",
+      "entityType": "organization",
+      "name": "Aave",
+      "aliases": ["Aave Protocol", "Aave DAO"],
+      "domain": "crypto",
+      "metadata": { "type": "defi_protocol", "category": "lending" },
+      "firstSeen": "2026-04-02T06:00:00Z",
+      "lastSeen": "2026-04-03T10:00:00Z"
+    },
+    {
+      "id": "ent_org_fidelity",
+      "type": "entity",
+      "entityType": "organization",
+      "name": "Fidelity Investments",
+      "aliases": ["Fidelity", "Fidelity Digital Assets"],
+      "domain": "macro",
+      "metadata": { "type": "asset_manager" },
+      "firstSeen": "2026-03-31T20:30:00Z",
+      "lastSeen": "2026-03-31T20:30:00Z"
+    },
+    {
+      "id": "ent_token_btc",
+      "type": "entity",
+      "entityType": "token",
+      "name": "Bitcoin",
+      "aliases": ["BTC", "XBT"],
+      "domain": "crypto",
+      "metadata": { "symbol": "BTC", "rank": 1 },
+      "firstSeen": "2026-03-28T18:00:00Z",
+      "lastSeen": "2026-04-04T00:00:00Z"
+    },
+    {
+      "id": "ent_token_eth",
+      "type": "entity",
+      "entityType": "token",
+      "name": "Ethereum",
+      "aliases": ["ETH", "Ether"],
+      "domain": "crypto",
+      "metadata": { "symbol": "ETH", "rank": 2 },
+      "firstSeen": "2026-04-01T10:00:00Z",
+      "lastSeen": "2026-04-03T14:00:00Z"
+    },
+    {
+      "id": "ent_token_sol",
+      "type": "entity",
+      "entityType": "token",
+      "name": "Solana",
+      "aliases": ["SOL"],
+      "domain": "crypto",
+      "metadata": { "symbol": "SOL", "rank": 5 },
+      "firstSeen": "2026-04-01T16:00:00Z",
+      "lastSeen": "2026-04-02T14:00:00Z"
+    },
+    {
+      "id": "ent_token_usdt",
+      "type": "entity",
+      "entityType": "token",
+      "name": "Tether USD",
+      "aliases": ["USDT"],
+      "domain": "crypto",
+      "metadata": { "symbol": "USDT", "type": "stablecoin", "rank": 3 },
+      "firstSeen": "2026-03-30T04:00:00Z",
+      "lastSeen": "2026-03-30T04:00:00Z"
+    },
+    {
+      "id": "ent_token_fet",
+      "type": "entity",
+      "entityType": "token",
+      "name": "Fetch.ai",
+      "aliases": ["FET", "ASI"],
+      "domain": "crypto",
+      "metadata": { "symbol": "FET", "category": "ai-token" },
+      "firstSeen": "2026-04-03T02:00:00Z",
+      "lastSeen": "2026-04-03T02:00:00Z"
+    },
+    {
+      "id": "ent_token_render",
+      "type": "entity",
+      "entityType": "token",
+      "name": "Render Network",
+      "aliases": ["RENDER", "RNDR"],
+      "domain": "crypto",
+      "metadata": { "symbol": "RENDER", "category": "ai-token" },
+      "firstSeen": "2026-04-03T02:00:00Z",
+      "lastSeen": "2026-04-03T02:00:00Z"
+    },
+    {
+      "id": "ent_token_tao",
+      "type": "entity",
+      "entityType": "token",
+      "name": "Bittensor",
+      "aliases": ["TAO"],
+      "domain": "crypto",
+      "metadata": { "symbol": "TAO", "category": "ai-token" },
+      "firstSeen": "2026-04-03T02:00:00Z",
+      "lastSeen": "2026-04-03T02:00:00Z"
+    },
+    {
+      "id": "ent_token_aave",
+      "type": "entity",
+      "entityType": "token",
+      "name": "Aave Token",
+      "aliases": ["AAVE"],
+      "domain": "crypto",
+      "metadata": { "symbol": "AAVE", "category": "defi" },
+      "firstSeen": "2026-04-02T06:00:00Z",
+      "lastSeen": "2026-04-03T10:00:00Z"
+    },
+    {
+      "id": "ent_protocol_ethereum",
+      "type": "entity",
+      "entityType": "protocol",
+      "name": "Ethereum Network",
+      "aliases": ["Ethereum Mainnet", "ETH L1"],
+      "domain": "crypto",
+      "metadata": { "type": "layer1", "consensus": "proof-of-stake" },
+      "firstSeen": "2026-04-01T10:00:00Z",
+      "lastSeen": "2026-04-04T00:00:00Z"
+    },
+    {
+      "id": "ent_protocol_solana",
+      "type": "entity",
+      "entityType": "protocol",
+      "name": "Solana Network",
+      "aliases": ["Solana Mainnet"],
+      "domain": "crypto",
+      "metadata": { "type": "layer1", "consensus": "proof-of-history" },
+      "firstSeen": "2026-04-01T16:00:00Z",
+      "lastSeen": "2026-04-02T14:00:00Z"
+    },
+    {
+      "id": "ent_indicator_dxy",
+      "type": "entity",
+      "entityType": "indicator",
+      "name": "US Dollar Index",
+      "aliases": ["DXY"],
+      "domain": "macro",
+      "metadata": { "type": "forex_index" },
+      "firstSeen": "2026-03-31T09:00:00Z",
+      "lastSeen": "2026-03-31T09:00:00Z"
+    },
+    {
+      "id": "ent_indicator_us10y",
+      "type": "entity",
+      "entityType": "indicator",
+      "name": "US 10-Year Treasury Yield",
+      "aliases": ["10Y", "US10Y", "TNX"],
+      "domain": "macro",
+      "metadata": { "type": "bond_yield" },
+      "firstSeen": "2026-03-31T15:00:00Z",
+      "lastSeen": "2026-03-31T15:00:00Z"
+    },
+    {
+      "id": "ent_indicator_cpi",
+      "type": "entity",
+      "entityType": "indicator",
+      "name": "Consumer Price Index",
+      "aliases": ["CPI", "US CPI"],
+      "domain": "macro",
+      "metadata": { "type": "inflation_metric" },
+      "firstSeen": "2026-03-30T12:30:00Z",
+      "lastSeen": "2026-03-30T12:30:00Z"
+    },
+    {
+      "id": "ent_indicator_m2",
+      "type": "entity",
+      "entityType": "indicator",
+      "name": "Global M2 Money Supply",
+      "aliases": ["M2", "Global Liquidity"],
+      "domain": "macro",
+      "metadata": { "type": "monetary_aggregate" },
+      "firstSeen": "2026-04-03T08:00:00Z",
+      "lastSeen": "2026-04-03T08:00:00Z"
+    },
+    {
+      "id": "ent_policy_fed_funds_rate",
+      "type": "entity",
+      "entityType": "policy",
+      "name": "Federal Funds Rate",
+      "aliases": ["Fed Rate", "FFR"],
+      "domain": "macro",
+      "metadata": { "currentRate": "4.25-4.50%" },
+      "firstSeen": "2026-03-28T18:00:00Z",
+      "lastSeen": "2026-03-28T18:00:00Z"
+    }
+  ],
+  "edges": [
+    {
+      "id": "rel_001",
+      "source": "ent_org_federal_reserve",
+      "target": "evt_macro_a1b2c3",
+      "type": "involves",
+      "label": "Federal Reserve issued rate decision",
+      "confidence": 0.99,
+      "evidence": "FOMC meeting statement released March 28, 2026",
+      "detectedAt": "2026-03-28T18:00:00Z"
+    },
+    {
+      "id": "rel_002",
+      "source": "ent_person_jerome_powell",
+      "target": "evt_macro_a1b2c3",
+      "type": "involves",
+      "label": "Powell chaired FOMC meeting and press conference",
+      "confidence": 0.99,
+      "evidence": "Post-meeting press conference by Chair Powell",
+      "detectedAt": "2026-03-28T18:00:00Z"
+    },
+    {
+      "id": "rel_003",
+      "source": "evt_macro_a1b2c3",
+      "target": "ent_policy_fed_funds_rate",
+      "type": "involves",
+      "label": "Rate decision maintained federal funds rate",
+      "confidence": 0.99,
+      "evidence": "Rate held at 4.25-4.50%",
+      "detectedAt": "2026-03-28T18:00:00Z"
+    },
+    {
+      "id": "rel_004",
+      "source": "evt_macro_d4e5f6",
+      "target": "evt_macro_a1b2c3",
+      "type": "influences",
+      "label": "Soft CPI validates Fed's dovish lean",
+      "confidence": 0.88,
+      "evidence": "CPI at 2.4% below consensus reinforced market expectations for June rate cut signaled by Powell",
+      "detectedAt": "2026-03-30T12:30:00Z"
+    },
+    {
+      "id": "rel_005",
+      "source": "ent_indicator_cpi",
+      "target": "evt_macro_d4e5f6",
+      "type": "involves",
+      "label": "CPI is the metric reported in this event",
+      "confidence": 0.99,
+      "evidence": "BLS CPI release",
+      "detectedAt": "2026-03-30T12:30:00Z"
+    },
+    {
+      "id": "rel_006",
+      "source": "evt_macro_d4e5f6",
+      "target": "evt_macro_g7h8i9",
+      "type": "causes",
+      "label": "Below-consensus CPI triggered dollar sell-off",
+      "confidence": 0.92,
+      "evidence": "DXY fell 2.5% following CPI release as rate cut probability increased to 82%",
+      "detectedAt": "2026-03-31T09:00:00Z"
+    },
+    {
+      "id": "rel_007",
+      "source": "ent_indicator_dxy",
+      "target": "evt_macro_g7h8i9",
+      "type": "involves",
+      "label": "DXY is the index measured in this event",
+      "confidence": 0.99,
+      "evidence": "Dollar index drop to 101.2",
+      "detectedAt": "2026-03-31T09:00:00Z"
+    },
+    {
+      "id": "rel_008",
+      "source": "evt_macro_d4e5f6",
+      "target": "evt_macro_j1k2l3",
+      "type": "causes",
+      "label": "Soft inflation data drove Treasury yield decline",
+      "confidence": 0.90,
+      "evidence": "10Y yield fell 33bps in the days following CPI release",
+      "detectedAt": "2026-03-31T15:00:00Z"
+    },
+    {
+      "id": "rel_009",
+      "source": "ent_indicator_us10y",
+      "target": "evt_macro_j1k2l3",
+      "type": "involves",
+      "label": "10Y yield is the measure in this event",
+      "confidence": 0.99,
+      "evidence": "Treasury yield data",
+      "detectedAt": "2026-03-31T15:00:00Z"
+    },
+    {
+      "id": "rel_010",
+      "source": "evt_macro_g7h8i9",
+      "target": "evt_crypto_a1b2c3",
+      "type": "causes",
+      "label": "Dollar weakness fueled Bitcoin rally",
+      "confidence": 0.85,
+      "evidence": "BTC historically inversely correlated with DXY; rallied within 24h of dollar drop",
+      "detectedAt": "2026-03-31T14:00:00Z"
+    },
+    {
+      "id": "rel_011",
+      "source": "evt_macro_d4e5f6",
+      "target": "evt_crypto_a1b2c3",
+      "type": "causes",
+      "label": "Soft CPI boosted crypto as inflation hedge narrative",
+      "confidence": 0.82,
+      "evidence": "Market narrative shifted to rate cut optimism driving risk-on assets",
+      "detectedAt": "2026-03-31T14:00:00Z"
+    },
+    {
+      "id": "rel_012",
+      "source": "ent_token_btc",
+      "target": "evt_crypto_a1b2c3",
+      "type": "involves",
+      "label": "Bitcoin is the asset in this price event",
+      "confidence": 0.99,
+      "evidence": "BTC price breakout to $92K",
+      "detectedAt": "2026-03-31T14:00:00Z"
+    },
+    {
+      "id": "rel_013",
+      "source": "evt_crypto_v4w5x6",
+      "target": "evt_crypto_a1b2c3",
+      "type": "precedes",
+      "label": "Tether minting preceded and signaled incoming BTC buy pressure",
+      "confidence": 0.78,
+      "evidence": "$2B USDT minted 24h before BTC breakout; historically correlates with rally",
+      "detectedAt": "2026-03-31T14:00:00Z"
+    },
+    {
+      "id": "rel_014",
+      "source": "ent_org_tether",
+      "target": "evt_crypto_v4w5x6",
+      "type": "involves",
+      "label": "Tether executed the USDT minting",
+      "confidence": 0.98,
+      "evidence": "Whale Alert data on Tether Treasury transactions",
+      "detectedAt": "2026-03-30T04:00:00Z"
+    },
+    {
+      "id": "rel_015",
+      "source": "ent_token_usdt",
+      "target": "evt_crypto_v4w5x6",
+      "type": "involves",
+      "label": "USDT is the token minted",
+      "confidence": 0.99,
+      "evidence": "Tether mint event",
+      "detectedAt": "2026-03-30T04:00:00Z"
+    },
+    {
+      "id": "rel_016",
+      "source": "evt_crypto_a1b2c3",
+      "target": "evt_crypto_d4e5f6",
+      "type": "causes",
+      "label": "BTC breakout triggered massive ETF inflows",
+      "confidence": 0.89,
+      "evidence": "ETF inflows spiked to $1.2B on the same day BTC broke $92K",
+      "detectedAt": "2026-03-31T20:30:00Z"
+    },
+    {
+      "id": "rel_017",
+      "source": "ent_org_blackrock",
+      "target": "evt_crypto_d4e5f6",
+      "type": "involves",
+      "label": "BlackRock's IBIT led ETF inflows with $680M",
+      "confidence": 0.96,
+      "evidence": "Bloomberg ETF flow data showing IBIT dominance",
+      "detectedAt": "2026-03-31T20:30:00Z"
+    },
+    {
+      "id": "rel_018",
+      "source": "ent_org_fidelity",
+      "target": "evt_crypto_d4e5f6",
+      "type": "involves",
+      "label": "Fidelity's FBTC saw $310M in inflows",
+      "confidence": 0.95,
+      "evidence": "Bloomberg ETF flow data",
+      "detectedAt": "2026-03-31T20:30:00Z"
+    },
+    {
+      "id": "rel_019",
+      "source": "ent_person_larry_fink",
+      "target": "ent_org_blackrock",
+      "type": "involves",
+      "label": "Larry Fink leads BlackRock's crypto strategy",
+      "confidence": 0.95,
+      "evidence": "Fink has publicly endorsed Bitcoin as digital gold",
+      "detectedAt": "2026-03-31T20:30:00Z"
+    },
+    {
+      "id": "rel_020",
+      "source": "evt_crypto_d4e5f6",
+      "target": "evt_crypto_e4f5g6",
+      "type": "causes",
+      "label": "ETF inflows contributed to total market cap exceeding $3.5T",
+      "confidence": 0.86,
+      "evidence": "Sustained institutional buying pushed overall market higher",
+      "detectedAt": "2026-04-02T08:00:00Z"
+    },
+    {
+      "id": "rel_021",
+      "source": "evt_crypto_a1b2c3",
+      "target": "evt_crypto_g7h8i9",
+      "type": "causes",
+      "label": "BTC rally catalyzed ETH recovery and ratio bounce",
+      "confidence": 0.84,
+      "evidence": "ETH typically follows BTC rallies with a lag; ETH/BTC ratio recovered",
+      "detectedAt": "2026-04-01T10:00:00Z"
+    },
+    {
+      "id": "rel_022",
+      "source": "ent_token_eth",
+      "target": "evt_crypto_g7h8i9",
+      "type": "involves",
+      "label": "Ethereum is the asset in this price event",
+      "confidence": 0.99,
+      "evidence": "ETH rally to $3,800",
+      "detectedAt": "2026-04-01T10:00:00Z"
+    },
+    {
+      "id": "rel_023",
+      "source": "evt_crypto_g7h8i9",
+      "target": "evt_crypto_j1k2l3",
+      "type": "causes",
+      "label": "ETH rally boosted DeFi TVL as collateral values increased",
+      "confidence": 0.87,
+      "evidence": "DeFi TVL denominated in USD increases mechanically with ETH price",
+      "detectedAt": "2026-04-02T06:00:00Z"
+    },
+    {
+      "id": "rel_024",
+      "source": "evt_crypto_a1b2c3",
+      "target": "evt_crypto_j1k2l3",
+      "type": "causes",
+      "label": "BTC rally increased confidence driving capital into DeFi",
+      "confidence": 0.80,
+      "evidence": "Risk-on sentiment from BTC breakout spilled into DeFi protocols",
+      "detectedAt": "2026-04-02T06:00:00Z"
+    },
+    {
+      "id": "rel_025",
+      "source": "ent_org_aave",
+      "target": "evt_crypto_j1k2l3",
+      "type": "involves",
+      "label": "Aave is a leading protocol in DeFi TVL growth",
+      "confidence": 0.93,
+      "evidence": "Aave TVL at $28B, largest individual protocol",
+      "detectedAt": "2026-04-02T06:00:00Z"
+    },
+    {
+      "id": "rel_026",
+      "source": "evt_crypto_a1b2c3",
+      "target": "evt_crypto_y7z8a9",
+      "type": "influences",
+      "label": "BTC price near ATH motivated MicroStrategy to accelerate accumulation",
+      "confidence": 0.75,
+      "evidence": "Purchase at $91.5K average, close to breakout price",
+      "detectedAt": "2026-04-01T13:00:00Z"
+    },
+    {
+      "id": "rel_027",
+      "source": "ent_person_michael_saylor",
+      "target": "evt_crypto_y7z8a9",
+      "type": "involves",
+      "label": "Saylor directed MicroStrategy's Bitcoin purchase",
+      "confidence": 0.97,
+      "evidence": "Saylor announced purchase via X post and SEC filing",
+      "detectedAt": "2026-04-01T13:00:00Z"
+    },
+    {
+      "id": "rel_028",
+      "source": "ent_org_microstrategy",
+      "target": "evt_crypto_y7z8a9",
+      "type": "involves",
+      "label": "MicroStrategy is the acquiring entity",
+      "confidence": 0.99,
+      "evidence": "MicroStrategy 8-K filing",
+      "detectedAt": "2026-04-01T13:00:00Z"
+    },
+    {
+      "id": "rel_029",
+      "source": "ent_token_btc",
+      "target": "evt_crypto_y7z8a9",
+      "type": "involves",
+      "label": "Bitcoin is the asset purchased",
+      "confidence": 0.99,
+      "evidence": "12,000 BTC acquired",
+      "detectedAt": "2026-04-01T13:00:00Z"
+    },
+    {
+      "id": "rel_030",
+      "source": "evt_macro_v4w5x6",
+      "target": "evt_crypto_m4n5o6",
+      "type": "causes",
+      "label": "NVIDIA earnings beat catalyzed AI token rally",
+      "confidence": 0.88,
+      "evidence": "AI tokens surged 35% within hours of NVIDIA earnings release",
+      "detectedAt": "2026-04-03T02:00:00Z"
+    },
+    {
+      "id": "rel_031",
+      "source": "ent_org_nvidia",
+      "target": "evt_macro_v4w5x6",
+      "type": "involves",
+      "label": "NVIDIA is the company reporting earnings",
+      "confidence": 0.99,
+      "evidence": "NVIDIA Q1 FY2027 earnings report",
+      "detectedAt": "2026-04-02T20:00:00Z"
+    },
+    {
+      "id": "rel_032",
+      "source": "ent_person_jensen_huang",
+      "target": "evt_macro_v4w5x6",
+      "type": "involves",
+      "label": "Jensen Huang presented earnings and forward guidance",
+      "confidence": 0.98,
+      "evidence": "CEO earnings call commentary on AI infrastructure demand",
+      "detectedAt": "2026-04-02T20:00:00Z"
+    },
+    {
+      "id": "rel_033",
+      "source": "ent_token_fet",
+      "target": "evt_crypto_m4n5o6",
+      "type": "involves",
+      "label": "FET led the AI token rally with 52% gain",
+      "confidence": 0.94,
+      "evidence": "CoinGecko price data",
+      "detectedAt": "2026-04-03T02:00:00Z"
+    },
+    {
+      "id": "rel_034",
+      "source": "ent_token_render",
+      "target": "evt_crypto_m4n5o6",
+      "type": "involves",
+      "label": "RENDER gained 28% in AI token rally",
+      "confidence": 0.93,
+      "evidence": "CoinGecko price data",
+      "detectedAt": "2026-04-03T02:00:00Z"
+    },
+    {
+      "id": "rel_035",
+      "source": "ent_token_tao",
+      "target": "evt_crypto_m4n5o6",
+      "type": "involves",
+      "label": "TAO gained 41% in AI token rally",
+      "confidence": 0.92,
+      "evidence": "CoinGecko price data",
+      "detectedAt": "2026-04-03T02:00:00Z"
+    },
+    {
+      "id": "rel_036",
+      "source": "ent_token_sol",
+      "target": "evt_crypto_p7q8r9",
+      "type": "involves",
+      "label": "Solana is the chain with record DEX volume",
+      "confidence": 0.97,
+      "evidence": "DefiLlama DEX volume data",
+      "detectedAt": "2026-04-01T16:00:00Z"
+    },
+    {
+      "id": "rel_037",
+      "source": "ent_protocol_solana",
+      "target": "evt_crypto_p7q8r9",
+      "type": "involves",
+      "label": "Solana network processed the DEX transactions",
+      "confidence": 0.97,
+      "evidence": "On-chain volume data",
+      "detectedAt": "2026-04-01T16:00:00Z"
+    },
+    {
+      "id": "rel_038",
+      "source": "evt_crypto_p7q8r9",
+      "target": "evt_crypto_s1t2u3",
+      "type": "influences",
+      "label": "Solana's DEX dominance strengthened BlackRock's ETF thesis",
+      "confidence": 0.72,
+      "evidence": "S-1 filing cited Solana's growing ecosystem and on-chain activity",
+      "detectedAt": "2026-04-02T14:00:00Z"
+    },
+    {
+      "id": "rel_039",
+      "source": "ent_org_blackrock",
+      "target": "evt_crypto_s1t2u3",
+      "type": "involves",
+      "label": "BlackRock filed the Solana ETF application",
+      "confidence": 0.98,
+      "evidence": "SEC EDGAR S-1 filing",
+      "detectedAt": "2026-04-02T14:00:00Z"
+    },
+    {
+      "id": "rel_040",
+      "source": "ent_org_sec",
+      "target": "evt_crypto_s1t2u3",
+      "type": "involves",
+      "label": "SEC is the regulatory body reviewing the filing",
+      "confidence": 0.99,
+      "evidence": "S-1 filed with SEC",
+      "detectedAt": "2026-04-02T14:00:00Z"
+    },
+    {
+      "id": "rel_041",
+      "source": "ent_person_larry_fink",
+      "target": "evt_crypto_s1t2u3",
+      "type": "influences",
+      "label": "Larry Fink's pro-crypto stance enabled BlackRock's SOL ETF filing",
+      "confidence": 0.82,
+      "evidence": "Fink has publicly stated crypto is a legitimate asset class",
+      "detectedAt": "2026-04-02T14:00:00Z"
+    },
+    {
+      "id": "rel_042",
+      "source": "evt_crypto_s1t2u3",
+      "target": "ent_token_sol",
+      "type": "influences",
+      "label": "SOL ETF filing caused 22% SOL price rally",
+      "confidence": 0.91,
+      "evidence": "Price surge immediately following filing announcement",
+      "detectedAt": "2026-04-02T14:00:00Z"
+    },
+    {
+      "id": "rel_043",
+      "source": "evt_macro_m4n5o6",
+      "target": "evt_crypto_a1b2c3",
+      "type": "correlates",
+      "label": "Global central bank easing correlated with crypto risk-on",
+      "confidence": 0.76,
+      "evidence": "ECB cut + Fed hold created synchronized dovish backdrop for risk assets",
+      "detectedAt": "2026-04-01T12:45:00Z"
+    },
+    {
+      "id": "rel_044",
+      "source": "ent_person_christine_lagarde",
+      "target": "evt_macro_m4n5o6",
+      "type": "involves",
+      "label": "Lagarde announced ECB rate decision",
+      "confidence": 0.99,
+      "evidence": "ECB press conference",
+      "detectedAt": "2026-04-01T12:45:00Z"
+    },
+    {
+      "id": "rel_045",
+      "source": "ent_org_ecb",
+      "target": "evt_macro_m4n5o6",
+      "type": "involves",
+      "label": "ECB is the institution that cut rates",
+      "confidence": 0.99,
+      "evidence": "ECB monetary policy decision",
+      "detectedAt": "2026-04-01T12:45:00Z"
+    },
+    {
+      "id": "rel_046",
+      "source": "evt_macro_s1t2u3",
+      "target": "ent_token_btc",
+      "type": "influences",
+      "label": "M2 expansion historically leads BTC price by ~3 months",
+      "confidence": 0.74,
+      "evidence": "Historical M2-BTC correlation analysis with 60-90 day lag",
+      "detectedAt": "2026-04-03T08:00:00Z"
+    },
+    {
+      "id": "rel_047",
+      "source": "ent_indicator_m2",
+      "target": "evt_macro_s1t2u3",
+      "type": "involves",
+      "label": "Global M2 is the metric in this event",
+      "confidence": 0.99,
+      "evidence": "FRED and central bank data",
+      "detectedAt": "2026-04-03T08:00:00Z"
+    },
+    {
+      "id": "rel_048",
+      "source": "evt_macro_p7q8r9",
+      "target": "evt_macro_a1b2c3",
+      "type": "influences",
+      "label": "Rising unemployment supports case for rate cuts",
+      "confidence": 0.79,
+      "evidence": "Weakening labor market adds to Fed's dual mandate pressure",
+      "detectedAt": "2026-04-02T12:30:00Z"
+    },
+    {
+      "id": "rel_049",
+      "source": "ent_person_vitalik_buterin",
+      "target": "evt_crypto_b1c2d3",
+      "type": "involves",
+      "label": "Vitalik supported Pectra upgrade timeline",
+      "confidence": 0.90,
+      "evidence": "Buterin's blog post on Pectra readiness",
+      "detectedAt": "2026-04-03T14:00:00Z"
+    },
+    {
+      "id": "rel_050",
+      "source": "ent_protocol_ethereum",
+      "target": "evt_crypto_b1c2d3",
+      "type": "involves",
+      "label": "Ethereum network is the chain being upgraded",
+      "confidence": 0.99,
+      "evidence": "Pectra targets Ethereum mainnet",
+      "detectedAt": "2026-04-03T14:00:00Z"
+    },
+    {
+      "id": "rel_051",
+      "source": "evt_crypto_b1c2d3",
+      "target": "ent_token_eth",
+      "type": "influences",
+      "label": "Pectra upgrade confirmation is bullish catalyst for ETH",
+      "confidence": 0.83,
+      "evidence": "Major upgrades historically precede ETH price appreciation",
+      "detectedAt": "2026-04-03T14:00:00Z"
+    },
+    {
+      "id": "rel_052",
+      "source": "evt_crypto_j1k2l3",
+      "target": "evt_crypto_h7i8j9",
+      "type": "influences",
+      "label": "Rising DeFi TVL created demand for Aave v4 launch",
+      "confidence": 0.77,
+      "evidence": "Aave v4 launch timed with peak DeFi activity",
+      "detectedAt": "2026-04-03T10:00:00Z"
+    },
+    {
+      "id": "rel_053",
+      "source": "ent_org_aave",
+      "target": "evt_crypto_h7i8j9",
+      "type": "involves",
+      "label": "Aave is the protocol that launched v4",
+      "confidence": 0.99,
+      "evidence": "Aave governance and deployment",
+      "detectedAt": "2026-04-03T10:00:00Z"
+    },
+    {
+      "id": "rel_054",
+      "source": "ent_token_aave",
+      "target": "evt_crypto_h7i8j9",
+      "type": "involves",
+      "label": "AAVE token governs the protocol upgrade",
+      "confidence": 0.95,
+      "evidence": "Token holders voted on v4 deployment",
+      "detectedAt": "2026-04-03T10:00:00Z"
+    },
+    {
+      "id": "rel_055",
+      "source": "evt_crypto_h7i8j9",
+      "target": "ent_protocol_ethereum",
+      "type": "involves",
+      "label": "Aave v4 deployed on Ethereum mainnet",
+      "confidence": 0.97,
+      "evidence": "Mainnet deployment confirmed",
+      "detectedAt": "2026-04-03T10:00:00Z"
+    },
+    {
+      "id": "rel_056",
+      "source": "evt_crypto_e4f5g6",
+      "target": "evt_crypto_m4n5o6",
+      "type": "correlates",
+      "label": "Market cap milestone coincided with AI narrative rotation",
+      "confidence": 0.71,
+      "evidence": "Sector rotation from BTC to altcoins including AI tokens",
+      "detectedAt": "2026-04-03T02:00:00Z"
+    },
+    {
+      "id": "rel_057",
+      "source": "evt_crypto_y7z8a9",
+      "target": "evt_crypto_e4f5g6",
+      "type": "causes",
+      "label": "MicroStrategy purchase contributed to total market cap growth",
+      "confidence": 0.73,
+      "evidence": "$1.1B institutional purchase added direct buy pressure",
+      "detectedAt": "2026-04-02T08:00:00Z"
+    },
+    {
+      "id": "rel_058",
+      "source": "evt_crypto_k1l2m3",
+      "target": "ent_token_btc",
+      "type": "related_to",
+      "label": "Mining difficulty reflects network health and miner confidence",
+      "confidence": 0.85,
+      "evidence": "ATH difficulty indicates miners remain profitable and committed",
+      "detectedAt": "2026-04-04T00:00:00Z"
+    },
+    {
+      "id": "rel_059",
+      "source": "evt_macro_j1k2l3",
+      "target": "evt_crypto_a1b2c3",
+      "type": "causes",
+      "label": "Falling yields pushed capital into risk assets including BTC",
+      "confidence": 0.83,
+      "evidence": "Lower real yields reduce opportunity cost of holding non-yielding assets",
+      "detectedAt": "2026-03-31T15:00:00Z"
+    },
+    {
+      "id": "rel_060",
+      "source": "evt_crypto_d4e5f6",
+      "target": "evt_crypto_g7h8i9",
+      "type": "influences",
+      "label": "ETF inflows signal institutional confidence boosting ETH sentiment",
+      "confidence": 0.76,
+      "evidence": "BTC ETF flows spill over into ETH market optimism",
+      "detectedAt": "2026-04-01T10:00:00Z"
+    }
+  ],
+  "meta": {
+    "domains": ["crypto", "macro"],
+    "timeRange": {
+      "from": "2026-03-28T18:00:00Z",
+      "to": "2026-04-04T00:00:00Z"
+    },
+    "nodeCount": 51,
+    "edgeCount": 60,
+    "generatedAt": "2026-04-04T12:00:00Z"
+  }
+}

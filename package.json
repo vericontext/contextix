@@ -1,0 +1,47 @@
+{
+  "name": "contextix",
+  "version": "0.1.0",
+  "description": "Open-source cross-domain signal graph for AI agents. Give your agent world context.",
+  "type": "module",
+  "main": "./dist/server.js",
+  "types": "./dist/server.d.ts",
+  "bin": {
+    "contextix": "./dist/index.js"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/server.js",
+      "types": "./dist/server.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsup src/index.ts src/server.ts --format esm --dts --clean",
+    "dev": "tsup src/index.ts src/server.ts --format esm --dts --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "mcp",
+    "knowledge-graph",
+    "signal-graph",
+    "ai-agents",
+    "claude-code",
+    "cross-domain",
+    "crypto",
+    "macro",
+    "causal-graph"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kiyeonjeon21/contextix"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1",
+    "commander": "^13.1.0",
+    "zod": "^3.24.4"
+  },
+  "devDependencies": {
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.3"
+  }
+}
