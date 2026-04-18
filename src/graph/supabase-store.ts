@@ -105,6 +105,7 @@ export class SupabaseStore implements GraphStore {
       .from("relations")
       .select("*")
       .eq("source_id", nodeId)
+      .is("valid_until", null)
       .order("confidence", { ascending: false })
       .limit(50);
     return (data ?? []).map(rowToRelation);
@@ -116,6 +117,7 @@ export class SupabaseStore implements GraphStore {
       .from("relations")
       .select("*")
       .eq("target_id", nodeId)
+      .is("valid_until", null)
       .order("confidence", { ascending: false })
       .limit(50);
     return (data ?? []).map(rowToRelation);
@@ -146,7 +148,8 @@ export class SupabaseStore implements GraphStore {
     limit?: number;
   }): Promise<Entity[]> {
     const sb = await this.client();
-    let q = sb.from("entities").select("*").order("last_seen", { ascending: false });
+    // merged_into IS NULL: only return canonical entities, not merged aliases
+    let q = sb.from("entities").select("*").is("merged_into", null).order("last_seen", { ascending: false });
 
     if (opts?.type && opts.type !== "any") q = q.eq("entity_type", opts.type);
     if (opts?.query) q = q.ilike("name", `%${opts.query}%`);
@@ -161,6 +164,7 @@ export class SupabaseStore implements GraphStore {
     const { data } = await sb
       .from("relations")
       .select("*")
+      .is("valid_until", null)
       .order("confidence", { ascending: false })
       .limit(limit);
     return (data ?? []).map(rowToRelation);
