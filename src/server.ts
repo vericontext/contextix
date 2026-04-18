@@ -13,7 +13,19 @@ export async function startServer(
   overrides?: Partial<ContextixConfig>
 ): Promise<void> {
   const config = loadConfig(overrides);
-  const store: GraphStore = new LocalJsonStore(config.graphFile);
+
+  // Hosted mode: use Supabase as the graph backend
+  let store: GraphStore;
+  const supabaseUrl = process.env.CONTEXTIX_SUPABASE_URL;
+  const supabaseKey = process.env.CONTEXTIX_SUPABASE_KEY;
+
+  if (config.hosted && supabaseUrl && supabaseKey) {
+    const { SupabaseStore } = await import("./graph/supabase-store.js");
+    store = new SupabaseStore(supabaseUrl, supabaseKey);
+    process.stderr.write("[contextix] hosted mode: connected to Supabase graph\n");
+  } else {
+    store = new LocalJsonStore(config.graphFile);
+  }
 
   await store.load();
 

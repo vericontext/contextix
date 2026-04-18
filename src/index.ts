@@ -21,9 +21,10 @@ program
   .description("Start the MCP server (default)")
   .option("-d, --data-dir <path>", "Data directory", undefined)
   .option("--domains <domains>", "Comma-separated domains", "crypto,macro")
+  .option("--hosted", "Use hosted Supabase graph (requires CONTEXTIX_SUPABASE_URL + CONTEXTIX_SUPABASE_KEY)", false)
   .action(async (opts) => {
     const domains = opts.domains.split(",").map((d: string) => d.trim());
-    await startServer({ dataDir: opts.dataDir, domains });
+    await startServer({ dataDir: opts.dataDir, domains, hosted: opts.hosted });
   });
 
 program
