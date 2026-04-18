@@ -6,7 +6,7 @@
   "main": "./dist/server.js",
   "types": "./dist/server.d.ts",
   "bin": {
-    "contextix": "./dist/index.js"
+    "contextix": "dist/index.js"
   },
   "exports": {
     ".": {
@@ -33,7 +33,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/vericontext/contextix"
+    "url": "git+https://github.com/vericontext/contextix.git"
   },
   "files": [
     "dist",
