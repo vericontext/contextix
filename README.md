@@ -58,10 +58,10 @@ Add to `claude_desktop_config.json`:
 ```bash
 npm install -g contextix
 
-contextix serve                       # Start MCP server (stdio)
-contextix signals --domain crypto     # Print recent signals
-contextix signals --domain macro --timeframe 7d
-contextix run crypto                  # Run synthesis pipeline
+contextix serve                            # Start MCP server (stdio)
+contextix signals --domain crypto          # Print recent signals
+contextix signals --domain macro -t 7d     # Macro signals, last 7 days
+contextix ingest <insights-dir> <out.json> # Ingest pipeline output into graph
 ```
 
 Works offline with seed data out of the box. No API keys required for the core graph.
@@ -136,8 +136,9 @@ Every edge has a **confidence score** (0–1) and an **evidence string** — no 
 The seed graph ships with 20+ events, 30 entities, 60+ relations. To run live synthesis:
 
 ```bash
-contextix run crypto    # CoinGecko + Etherscan + web signals → graph
-contextix run macro     # FRED + Fed RSS + macro web signals → graph
+# Run the agent pipeline (requires Claude Code + API keys)
+# See agents/ directory for methodology and setup
+contextix ingest ./agents/output/crypto ./data/graph.json
 ```
 
 The synthesis pipeline is Claude agent-based and defined in [`agents/`](./agents/) — the methodology (importance thresholds, causal rules, evidence standards) is fully open-source.

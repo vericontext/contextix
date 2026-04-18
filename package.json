@@ -33,8 +33,16 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kiyeonjeon21/contextix"
+    "url": "https://github.com/vericontext/contextix"
   },
+  "files": [
+    "dist",
+    "data",
+    "agents",
+    "README.md",
+    "LICENSE",
+    "CONTRIBUTING.md"
+  ],
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.12.1",
     "commander": "^13.1.0",

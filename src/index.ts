@@ -31,6 +31,33 @@ program
   });
 
 program
+  .command("signals")
+  .description("Print recent signals from the local graph")
+  .option("-d, --domain <domain>", "Filter by domain (crypto, macro, ai, media)")
+  .option("-t, --timeframe <timeframe>", "Time window (1h, 6h, 24h, 7d, 30d)", "24h")
+  .option("-n, --limit <n>", "Max results", "20")
+  .option("--data-dir <path>", "Data directory override")
+  .action(async (opts) => {
+    const { loadConfig } = await import("./config.js");
+    const { LocalJsonStore } = await import("./graph/store.js");
+    const { handleSignals } = await import("./tools/signals.js");
+
+    const config = loadConfig({ dataDir: opts.dataDir });
+    const store = new LocalJsonStore(config.graphFile);
+    await store.load();
+
+    const result = await handleSignals(store, {
+      timeframe: opts.timeframe,
+      domains: opts.domain ? [opts.domain] : undefined,
+      minConfidence: 0.5,
+      limit: parseInt(opts.limit),
+    });
+
+    const text = result.content.find((c: { type: string }) => c.type === "text");
+    console.log(text?.text ?? "(no signals found)");
+  });
+
+program
   .command("ingest <insights-dir> <output-path>")
   .description("Ingest graph fragments from pipeline into unified signal graph")
   .action(async (insightsDir: string, outputPath: string) => {
