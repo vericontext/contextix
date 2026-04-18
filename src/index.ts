@@ -1,7 +1,11 @@
 #!/usr/bin/env node
 
 import { Command } from "commander";
+import { createRequire } from "module";
 import { startServer } from "./server.js";
+
+const require = createRequire(import.meta.url);
+const { version } = require("../package.json") as { version: string };
 
 const program = new Command();
 
@@ -10,7 +14,7 @@ program
   .description(
     "Open-source cross-domain signal graph for AI agents. Give your agent world context."
   )
-  .version("0.1.0");
+  .version(version);
 
 program
   .command("serve", { isDefault: true })
