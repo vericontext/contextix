@@ -93,11 +93,11 @@ node dist/index.js serve              # MCP test (pipe JSON-RPC)
 
 Publish: `npm version patch && npm publish` (after local smoke test).
 
-## Relationship to contextix-platform
+## Relationship to contextix.io
 
-- `contextix-platform` runs a **production pipeline** on curated crypto + AI sources → feeds contextix.io (hosted graph showcase).
-- It uses this OSS repo as the engine but adds: Supabase schema, RLS, entity dedup via pg_trgm + Haiku, scheduled batch (launchd), Next.js frontend.
-- **Do not** import platform-specific code (Supabase, Next.js, scheduled agents) into this repo.
+The hosted graph you see at [contextix.io](https://contextix.io) is a dogfood showcase — we run this OSS on curated crypto + AI sources and display the result. The scheduler, hosting, UI, and source curation all live in a separate private repo; none of that infrastructure belongs in this OSS package.
+
+- **Do not** import hosting-layer code (Next.js frontend, scheduled batch, Supabase-specific dedup logic) into this repo.
 - **Do** keep the core engine self-contained so any dev can run the same pipeline on their own sources.
 
 ## What NOT to add here
