@@ -40,6 +40,42 @@ program
   });
 
 program
+  .command("export")
+  .description("Export a subgraph in a given format")
+  .option("--format <format>", "Output format: json | mermaid", "json")
+  .option("--entity <name>", "Entity name (or event title / id) to center the subgraph on")
+  .option("--hops <n>", "Radius in hops from the entity", (v) => parseInt(v, 10), 2)
+  .option("--max-nodes <n>", "Maximum nodes to include", (v) => parseInt(v, 10), 200)
+  .option("-d, --data-dir <path>", "Data directory override")
+  .action(async (opts) => {
+    const { loadConfig } = await import("./config.js");
+    const { LocalJsonStore } = await import("./graph/store.js");
+    const { extractSubgraph } = await import("./graph/query.js");
+
+    if (!opts.entity) {
+      console.error("export: --entity <name> is required");
+      process.exit(1);
+    }
+
+    const config = loadConfig({ dataDir: opts.dataDir });
+    const store = new LocalJsonStore(config.graphFile);
+    await store.load();
+
+    const sub = await extractSubgraph(store, opts.entity, opts.hops, opts.maxNodes);
+
+    const format = String(opts.format).toLowerCase();
+    if (format === "mermaid") {
+      const { renderMermaid } = await import("./export/mermaid.js");
+      process.stdout.write(renderMermaid(sub));
+    } else if (format === "json") {
+      process.stdout.write(JSON.stringify(sub, null, 2) + "\n");
+    } else {
+      console.error(`export: unsupported --format "${opts.format}" (supported: json, mermaid)`);
+      process.exit(1);
+    }
+  });
+
+program
   .command("signals")
   .description("Print recent signals from the local graph")
   .option("-d, --domain <domain>", "Filter by domain (crypto, macro, ai, media)")
