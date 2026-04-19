@@ -24,17 +24,11 @@
     "typecheck": "tsc --noEmit"
   },
   "keywords": [
-    "cli",
-    "ingest",
-    "knowledge-graph",
-    "agentic",
-    "ai-agents",
     "mcp",
-    "claude-code",
-    "typescript",
-    "rss",
-    "markdown",
-    "obsidian"
+    "knowledge-graph",
+    "agentic-ai",
+    "cli",
+    "typescript"
   ],
   "license": "MIT",
   "repository": {
