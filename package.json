@@ -12,11 +12,15 @@
     ".": {
       "import": "./dist/server.js",
       "types": "./dist/server.d.ts"
+    },
+    "./skill": {
+      "import": "./dist/skill/index.js",
+      "types": "./dist/skill/index.d.ts"
     }
   },
   "scripts": {
-    "build": "tsup src/index.ts src/server.ts --format esm --dts --clean",
-    "dev": "tsup src/index.ts src/server.ts --format esm --dts --watch",
+    "build": "tsup src/index.ts src/server.ts src/skill/index.ts --format esm --dts --clean",
+    "dev": "tsup src/index.ts src/server.ts src/skill/index.ts --format esm --dts --watch",
     "typecheck": "tsc --noEmit"
   },
   "keywords": [

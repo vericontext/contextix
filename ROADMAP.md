@@ -16,6 +16,22 @@ Strip the old "cross-domain signal graph" product framing. Re-anchor on CLI-firs
 
 Ship the core wedge: point at a source, get a graph. This is what everything hinges on.
 
+### MCP skills `COMPLETED`
+
+The primary wedge — turn any MCP server into graph nodes via a single
+`.mjs` skill file. 10,000+ MCP servers become potential sources.
+
+- [x] `src/ingest/mcp.ts` — launches MCP server via `@modelcontextprotocol/sdk` stdio, runs skill, collects emits (2026-04-19)
+- [x] `src/skill/types.ts` + `defineSkill` helper + `contextix/skill` subpath export (2026-04-19)
+- [x] Env interpolation (`${VAR}` in mcpServer.env) + `requiredEnv` validation (2026-04-19)
+- [x] Deterministic entity/event/relation IDs, cross-run dedup (2026-04-19)
+- [x] `examples/skills/hackernews-top.mjs` (keyless) — 20 stories + author entities per run (2026-04-19)
+- [x] `examples/skills/coingecko-markets.mjs` (env gated) — top 20 coins + global snapshot (2026-04-19)
+- [x] `examples/skills/arxiv-ai.mjs` (keyless) — recent papers + author entities (2026-04-19)
+- [x] `examples/skills/README.md` — full skill-authoring guide (2026-04-19)
+- [ ] `contextix skills list` / `install` — skill discovery + package registry (v0.4)
+- [ ] `@contextix/skills-crypto` / `-ai` / `-dev` — official reference packs published to npm
+
 ### RSS / Atom `COMPLETED`
 - [x] `src/ingest/rss.ts` — fetch + parse RSS 2.0 / Atom / RDF (2026-04-19)
 - [x] `contextix ingest rss <url>` CLI command (2026-04-19)

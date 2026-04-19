@@ -27,12 +27,13 @@ program
 
 program
   .command("ingest <kind> <source>")
-  .description("Ingest from a source into the graph. kind: rss | markdown | url | json")
+  .description("Ingest from a source into the graph. kind: mcp | rss | markdown | url | json")
   .option("-o, --out <path>", "Graph file to write (default: ~/.contextix/graph.json)")
   .option("-d, --domain <domain>", "Domain hint for extractor (crypto, macro, ai, ...)")
   .option("-n, --max <n>", "Max items to ingest (connector-specific)", (v) => parseInt(v, 10))
   .option("--importance <level>", "Default importance (low|medium|high|critical)", "medium")
   .option("--extractor <mode>", "Extractor mode: auto|agentic|regex", "auto")
+  .option("--skill <path>", "Skill file path (for kind=mcp); overrides <source>")
   .action(async (kind: string, source: string, opts) => {
     const { runIngestCommand } = await import("./ingest/cli.js");
     await runIngestCommand(kind, source, opts);

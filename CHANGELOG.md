@@ -2,11 +2,23 @@
 
 ## 0.3.0 — 2026-04-19
 
-Major repositioning: **CLI toolkit for agentic AI**.
+Major repositioning: **CLI toolkit for agentic AI**. Primary wedge is
+`ingest mcp` — turn any MCP server into graph nodes via a single
+skill file. File-based connectors (RSS / markdown / URL) remain.
 
 ### Added
 
+- **MCP ingest + skill format** — `contextix ingest mcp <skill-file>`
+  launches any MCP server via `@modelcontextprotocol/sdk` stdio,
+  runs a skill's imperative `run({mcp, emit, log})` function, and
+  collects emitted entities / events / relations into a GraphFragment.
+  Skills are `.mjs` / `.js` files exporting `defineSkill({...})` from
+  `contextix/skill` subpath. Env interpolation (`${VAR}`), eager
+  `requiredEnv` validation, deterministic IDs with cross-run dedup.
+  Reference skills in `examples/skills/` for HackerNews (keyless),
+  CoinGecko (env-gated), arXiv (keyless).
 - **Ingest connectors** — `contextix ingest <kind> <source>` now supports:
+  - `mcp` — any MCP server via a skill file **(primary wedge)**
   - `rss` — RSS 2.0 / Atom / RDF feeds via `fast-xml-parser`
   - `markdown` — recursive walk with YAML frontmatter, wikilink → `concept` entities
   - `url` — single-page fetch with OG / Twitter meta + heuristic main-content extraction

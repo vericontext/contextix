@@ -6,6 +6,7 @@ import { applyFragment } from "./merge.js";
 import { ingestRss } from "./rss.js";
 import { ingestMarkdown } from "./markdown.js";
 import { ingestUrl } from "./url.js";
+import { ingestMcp } from "./mcp.js";
 import { getExtractor, AgenticExtractor } from "../extract/index.js";
 import type { ExtractorMode } from "../extract/index.js";
 import type { GraphFragment } from "./merge.js";
@@ -16,6 +17,7 @@ export interface IngestCliOptions {
   max?: number;
   importance?: "low" | "medium" | "high" | "critical";
   extractor?: ExtractorMode;
+  skill?: string;
 }
 
 export async function runIngestCommand(
@@ -67,12 +69,25 @@ export async function runIngestCommand(
       fragments = [frag];
       break;
     }
+    case "mcp": {
+      // `source` is the skill path (explicit --skill flag also accepted)
+      const skillPath = opts.skill ?? source;
+      console.error(`[ingest mcp] loading skill ${skillPath}`);
+      const frag = await ingestMcp({
+        skillPath,
+        domainHint: opts.domain,
+      });
+      fragments = [frag];
+      break;
+    }
     case "json": {
       fragments = loadJsonFragments(source);
       break;
     }
     default:
-      throw new Error(`Unknown ingest kind: ${kind}. Supported: rss, markdown, url, json`);
+      throw new Error(
+        `Unknown ingest kind: ${kind}. Supported: rss, markdown, url, mcp, json`
+      );
   }
 
   let totalEvents = 0,
