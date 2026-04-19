@@ -2,6 +2,8 @@
 
 **A CLI toolkit for agentic AI.** Turn any **MCP server** — or RSS, markdown, URLs — into a typed knowledge graph. Query it from your terminal, your agent, or over MCP.
 
+![contextix demo — MCP ingest and query](./public/demo.gif)
+
 ```bash
 # Any MCP server → graph. One command.
 npx contextix ingest mcp ./hackernews-top.mjs
