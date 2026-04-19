@@ -74,6 +74,8 @@ Open an issue with: expected behavior, actual behavior, repro steps, `node --ver
 
 Small focused PRs merge fast. If in doubt, open an issue first to align on direction.
 
+**Please don't open "I'll take this" comments on issues.** A draft PR — even 10 lines showing your approach — is always easier to review than a plan, and it reserves the work by action rather than by claim. If you want to discuss direction before coding, use GitHub Discussions.
+
 ## Project structure
 
 ```
