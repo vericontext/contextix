@@ -1,0 +1,20 @@
+# One feed URL per line. Lines starting with # are ignored.
+# Uncomment the feeds you care about, or replace with your own.
+
+# Crypto
+https://www.coindesk.com/arc/outboundfeeds/rss/
+# https://www.theblock.co/rss.xml
+# https://decrypt.co/feed
+
+# AI / ML
+# http://arxiv.org/rss/cs.AI
+# http://arxiv.org/rss/cs.LG
+# https://www.lesswrong.com/feed.xml
+
+# Tech + startups
+https://news.ycombinator.com/rss
+# https://arstechnica.com/ai/feed/
+
+# Macro / finance
+# https://feeds.bloomberg.com/markets/news.rss
+# https://www.ft.com/markets?format=rss

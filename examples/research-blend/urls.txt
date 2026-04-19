@@ -1,0 +1,9 @@
+# Blog posts / articles about LLM agents.
+# One URL per line. Lines starting with # are ignored.
+
+# Uncomment or replace with URLs you actually want on your graph.
+
+# https://www.anthropic.com/engineering/building-effective-agents
+# https://www.anthropic.com/engineering/claude-code-best-practices
+# https://lilianweng.github.io/posts/2023-06-23-agent/
+# https://platform.claude.com/docs/en/agents-and-tools/overview
