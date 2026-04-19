@@ -11,16 +11,14 @@ const program = new Command();
 
 program
   .name("contextix")
-  .description(
-    "Open-source cross-domain signal graph for AI agents. Give your agent world context."
-  )
+  .description("CLI toolkit for agentic AI. Ingest any source into a queryable knowledge graph.")
   .version(version);
 
 program
   .command("serve", { isDefault: true })
-  .description("Start the MCP server (default)")
+  .description("Start the MCP server (stdio)")
   .option("-d, --data-dir <path>", "Data directory", undefined)
-  .option("--domains <domains>", "Comma-separated domains", "crypto,macro")
+  .option("--domains <domains>", "Comma-separated domains", "crypto,macro,ai")
   .option("--hosted", "Use hosted Supabase graph (requires CONTEXTIX_SUPABASE_URL + CONTEXTIX_SUPABASE_KEY)", false)
   .action(async (opts) => {
     const domains = opts.domains.split(",").map((d: string) => d.trim());
@@ -28,11 +26,16 @@ program
   });
 
 program
-  .command("parse")
-  .description("Parse text into signal graph nodes (stdin → stdout)")
-  .action(async () => {
-    const { runParse } = await import("./parse/index.js");
-    await runParse();
+  .command("ingest <kind> <source>")
+  .description("Ingest from a source into the graph. kind: rss | markdown | url | json")
+  .option("-o, --out <path>", "Graph file to write (default: ~/.contextix/graph.json)")
+  .option("-d, --domain <domain>", "Domain hint for extractor (crypto, macro, ai, ...)")
+  .option("-n, --max <n>", "Max items to ingest (connector-specific)", (v) => parseInt(v, 10))
+  .option("--importance <level>", "Default importance (low|medium|high|critical)", "medium")
+  .option("--extractor <mode>", "Extractor mode: auto|agentic|regex", "auto")
+  .action(async (kind: string, source: string, opts) => {
+    const { runIngestCommand } = await import("./ingest/cli.js");
+    await runIngestCommand(kind, source, opts);
   });
 
 program
@@ -42,6 +45,7 @@ program
   .option("-t, --timeframe <timeframe>", "Time window (1h, 6h, 24h, 7d, 30d)", "24h")
   .option("-n, --limit <n>", "Max results", "20")
   .option("--data-dir <path>", "Data directory override")
+  .option("--json", "Output JSON instead of text")
   .action(async (opts) => {
     const { loadConfig } = await import("./config.js");
     const { LocalJsonStore } = await import("./graph/store.js");
@@ -58,16 +62,20 @@ program
       limit: parseInt(opts.limit),
     });
 
-    const text = result.content.find((c: { type: string }) => c.type === "text");
-    console.log(text?.text ?? "(no signals found)");
+    if (opts.json) {
+      console.log(JSON.stringify(result, null, 2));
+    } else {
+      const text = result.content.find((c: { type: string }) => c.type === "text");
+      console.log(text?.text ?? "(no signals found)");
+    }
   });
 
 program
-  .command("ingest <insights-dir> <output-path>")
-  .description("Ingest graph fragments from pipeline into unified signal graph")
-  .action(async (insightsDir: string, outputPath: string) => {
-    const { runIngest } = await import("./graph/ingest.js");
-    await runIngest(insightsDir, outputPath);
+  .command("parse")
+  .description("Parse text from stdin into graph fragment JSON on stdout")
+  .action(async () => {
+    const { runParse } = await import("./parse/index.js");
+    await runParse();
   });
 
 program.parse();

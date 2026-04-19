@@ -33,7 +33,9 @@ export type EntityType =
   | "protocol"
   | "indicator"
   | "policy"
-  | "location";
+  | "location"
+  | "concept"
+  | "model";
 
 /** A typed, weighted edge between two graph nodes */
 export interface Relation {

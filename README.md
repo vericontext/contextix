@@ -1,117 +1,141 @@
 # Contextix
 
-**The world-context MCP for AI agents.**
-
-There are 10,000+ MCP servers. They connect agents to databases, code editors, and SaaS tools. None of them tell your agent what's happening in the world right now — and *why*.
-
-Contextix is a cross-domain signal graph. It gives your agent structured, causal world-context across crypto, macro, AI, and media — not raw data feeds, not documents. A graph of what happened, who's involved, and how it's connected.
+**A CLI toolkit for agentic AI.** Point it at your sources (RSS, markdown, URLs, APIs). Agents extract entities and relations. Query the graph from your terminal, your agent, or via MCP.
 
 ```bash
-npx contextix serve
+export ANTHROPIC_API_KEY=sk-ant-...   # optional but recommended (Haiku 4.5 extraction)
+npx contextix ingest rss https://news.ycombinator.com/rss
+npx contextix ingest markdown ~/notes
+npx contextix why "AI export controls"
 ```
+
+No Python. No Docker. No Neo4j. One `npx` command, your data stays local at `~/.contextix/graph.json`.
 
 ---
 
-## What your agent can now answer
+## Why
 
-- *"Why did BTC drop 8% this week?"* → traces causal chain: Fed hawkish signal → DXY spike → risk-off rotation → crypto sell pressure
-- *"How is the NVIDIA export ban connected to stablecoin flows?"* → BFS path: export ban → GPU supply squeeze → AI compute cost → stablecoin treasury reallocation
-- *"What's the macro regime right now?"* → returns structured signal graph with confidence weights
-- *"Which entities overlap across the AI and crypto domains this month?"* → entity intersection with typed relationships
+Your agent is smart about code, dumb about the world. Document RAG gives it text; vector search gives it snippets. Neither tells it **what happened, who's involved, and how it's connected**.
+
+Contextix builds a **typed causal graph** from sources you choose. Agents query it via CLI — the same way they already call `git`, `rg`, or `curl` — so it slots into Claude Code, Cursor, Codex, Aider, or any shell-capable agent. MCP mode is bundled for Claude Desktop and MCP-native clients.
 
 ---
 
-## Quickstart
-
-**Claude Code / Cursor (MCP)**
-
-Add to `.mcp.json`:
-
-```json
-{
-  "mcpServers": {
-    "contextix": {
-      "command": "npx",
-      "args": ["contextix", "serve"]
-    }
-  }
-}
-```
-
-**Claude Desktop**
-
-Add to `claude_desktop_config.json`:
-
-```json
-{
-  "mcpServers": {
-    "contextix": {
-      "command": "npx",
-      "args": ["contextix", "serve"]
-    }
-  }
-}
-```
-
-**CLI**
+## Install
 
 ```bash
 npm install -g contextix
+contextix --help
 
-contextix serve                            # Start MCP server (stdio)
-contextix signals --domain crypto          # Print recent signals
-contextix signals --domain macro -t 7d     # Macro signals, last 7 days
-contextix ingest <insights-dir> <out.json> # Ingest pipeline output into graph
+# or one-shot
+npx contextix ingest markdown ~/notes
 ```
 
-Works offline with seed data out of the box. No API keys required for the core graph.
+Requires Node 20+. Optional: `ANTHROPIC_API_KEY` env var for agentic extraction (falls back to regex mode).
 
 ---
 
-## MCP Tools
+## CLI
 
-| Tool | What it does |
-|---|---|
-| `contextix_signals` | Recent signals across domains — events, importance, confidence |
-| `contextix_why` | Trace causal chain backward from any event |
-| `contextix_connect` | Find cross-domain path between two entities or topics |
-| `contextix_entities` | Search entities (tokens, people, orgs, indicators, policies) |
-| `contextix_graph` | Extract raw subgraph for visualization or analysis |
+### Ingest — point at sources
 
-### Example: `contextix_why`
-
-```json
-{
-  "event": "BTC -8% June 2025",
-  "depth": 3
-}
+```bash
+contextix ingest rss <url>              # RSS / Atom / RDF feed → events + entities
+contextix ingest markdown <dir>         # Markdown vault → events + wikilink graph
+contextix ingest url <url>              # Fetch a page, extract title/body/og-meta
+contextix ingest json <file|dir>        # Pre-formatted graph fragment (agent output)
+contextix ingest api <openapi.json>     # OpenAPI spec → schema entities  (roadmap)
 ```
 
-Returns:
+Each ingest run:
+1. Fetches / reads source
+2. Runs extraction — **agentic** (Haiku 4.5 with tool-use) when `ANTHROPIC_API_KEY` is set, **regex** otherwise
+3. Dedups entities (`BTC` / `Bitcoin` / `bitcoin` → one canonical node)
+4. Merges into `~/.contextix/graph.json` with `valid_from` timestamps
 
+Force a specific mode with `--extractor agentic|regex|auto` or env `CONTEXTIX_EXTRACTOR`.
+
+### Markdown ingest specifics
+
+- Walks recursively, skips `.git`, `node_modules`, `.obsidian`, `.trash`, `_templates`
+- Parses YAML frontmatter (`date`, `domain`, `tags`) — flat key/value + inline/block lists
+- Wikilinks `[[X]]` become `concept` entities with `related_to` edges from the note
+- File mtime is used as `detectedAt` when frontmatter lacks `date`
+
+### Query — ask the graph
+
+```bash
+contextix signals                       # Recent events (24h default)
+contextix signals --domain crypto -t 7d
+contextix why "<event>"                 # Causal chain (BFS backward)
+contextix connect "<a>" "<b>"           # Shortest path between entities
+contextix entities --search "fed"       # Entity lookup
 ```
-BTC -8% ← caused_by → Fed holds rates (0.92)
-Fed holds rates ← precedes → DXY +1.4% (0.87)
-DXY +1.4% ← influences → crypto risk-off (0.81)
+
+Output is human-readable by default. `--json` for piping.
+
+```bash
+contextix signals --json | jq '.events[] | select(.importance == "CRITICAL")'
 ```
 
-### Example: `contextix_connect`
+### Serve — MCP mode
 
-```json
-{
-  "from": "NVIDIA export ban",
-  "to": "USDC treasury",
-  "maxHops": 4
-}
+```bash
+contextix serve                         # stdio MCP server (default)
 ```
 
-Returns shortest path with typed, confidence-weighted edges across domains.
+Same graph, exposed as 5 MCP tools: `contextix_signals`, `contextix_why`, `contextix_connect`, `contextix_entities`, `contextix_graph`.
+
+### Export
+
+```bash
+contextix export --format json          # Full graph dump
+contextix export --format mermaid       # Mermaid diagram (roadmap)
+contextix export --format cypher        # Cypher for Neo4j import (roadmap)
+```
 
 ---
 
-## How It Works
+## Use with your agent
 
-Contextix maintains a **typed causal graph** — not a vector index, not a document store.
+### Claude Code (bash tool)
+
+Your agent calls contextix directly — no MCP needed:
+
+```
+"ingest my daily reads then tell me why the market moved"
+```
+
+Claude Code runs:
+```bash
+contextix ingest rss https://feeds.bloomberg.com/markets/news.rss
+contextix why "S&P drop" --depth 3
+```
+
+### Claude Desktop / Cursor (MCP)
+
+`.mcp.json`:
+```json
+{
+  "mcpServers": {
+    "contextix": {
+      "command": "npx",
+      "args": ["contextix", "serve"]
+    }
+  }
+}
+```
+
+### Scripts / cron
+
+```bash
+# Nightly ingest
+0 2 * * * contextix ingest rss https://example.com/feed.xml
+```
+
+---
+
+## Data model
 
 ```
 SignalEvent ──causes──▶ SignalEvent
@@ -121,111 +145,61 @@ SignalEvent ──causes──▶ SignalEvent
   Entity  ──influences──▶  Entity
 ```
 
-**Edge types:** `causes`, `caused_by`, `correlates`, `involves`, `influences`, `precedes`, `contradicts`
+- **Edge types**: `causes`, `caused_by`, `correlates`, `involves`, `influences`, `precedes`, `contradicts`
+- **Bi-temporal**: every edge has `valid_from` / `valid_until`; invalidated edges are kept so you can reconstruct the graph at any point in time
+- **Confidence**: every edge carries a `[0,1]` score + an evidence string
+- **Entity resolution**: fuzzy dedup via string similarity; canonical node + alias list
+- **Storage**: one JSON file at `~/.contextix/graph.json`. Portable, inspectable, git-friendly
 
-Every edge has a **confidence score** (0–1), an **evidence string**, and a **bi-temporal model** (`valid_from` / `valid_until`) — expired relations are preserved so causal chains can be reconstructed at any point in time.
-
-**Entity resolution:** fuzzy deduplication merges "BTC" / "Bitcoin" / "bitcoin" into a single canonical node with an alias list.
-
-**Domains:** `crypto`, `macro`, `ai`, `media`, `geopolitics` (extensible)
-
-**Stored at:** `~/.contextix/graph.json` (local, portable, no cloud dependency)
+Full schema: [`src/graph/types.ts`](./src/graph/types.ts).
 
 ---
 
-## Synthesis Pipeline (optional)
+## What contextix is not
 
-The seed graph ships with 20+ events, 30 entities, 60+ relations. To run live synthesis:
+| | Contextix | GraphRAG / LightRAG | mcp-memory | Graphiti |
+|---|---|---|---|---|
+| Install | `npx contextix` | `pip + indexing` | MCP only | `pip + Neo4j` |
+| Ingest from sources | ✅ RSS / md / URL | ❌ docs only | ❌ manual writes | ❌ SDK calls |
+| CLI interface | ✅ primary | ❌ Python scripts | ❌ | ❌ Python |
+| MCP mode | ✅ bundled | ❌ | ✅ only | ✅ |
+| Local file graph | ✅ `graph.json` | ❌ | ✅ jsonl | ❌ Neo4j |
 
-```bash
-# Run the agent pipeline (requires Claude Code + API keys)
-# See agents/ directory for methodology and setup
-contextix ingest ./agents/output/crypto ./data/graph.json
-```
-
-The synthesis pipeline is Claude agent-based and defined in [`agents/`](./agents/) — the methodology (importance thresholds, causal rules, evidence standards) is fully open-source.
-
----
-
-## Architecture
-
-```
-src/
-  index.ts          ← CLI entry (commander)
-  server.ts         ← MCP server (stdio transport)
-  config.ts         ← ~/.contextix config + env
-  graph/
-    types.ts        ← SignalEvent, Entity, Relation, SignalGraph
-    store.ts        ← LocalJsonStore (graph.json)
-    query.ts        ← BFS causal chains, path finding, subgraph
-    ingest.ts       ← pipeline JSON → graph merge
-  tools/            ← 5 MCP tool handlers
-  parse/            ← text → structured signal JSON
-
-agents/             ← open-source synthesis methodology
-data/
-  seed-graph.json   ← works offline, no API keys
-```
+Contextix is **not** a RAG system, not a vector database, not a memory store for conversations. It's an agentic CLI that turns feeds and files into a queryable typed graph.
 
 ---
 
-## Why not just use raw data MCPs?
+## Dogfood: contextix.io
 
-| | Raw data MCPs (CoinGecko, FRED, etc.) | Contextix |
-|---|---|---|
-| **What you get** | Price feeds, time-series, indicators | Synthesized events with causal edges |
-| **Cross-domain** | No — single domain per server | Yes — crypto ↔ macro ↔ AI ↔ media |
-| **Causality** | No — data points only | Yes — typed, evidence-backed edges |
-| **Agent query** | "What is BTC price?" | "Why is BTC moving? What else is connected?" |
-| **Setup** | Multiple servers, multiple APIs | One `npx` command, works offline |
-
-Contextix is not a replacement for raw data MCPs. It's the synthesis layer on top — the map your agent uses to navigate before drilling into raw data.
+[contextix.io](https://contextix.io) runs contextix on live crypto and AI sources. See what the graph looks like in production before you run it yourself.
 
 ---
 
-## Hosted Graph (coming soon)
+## Roadmap
 
-The local graph requires running the synthesis pipeline yourself. The hosted graph:
+See [`ROADMAP.md`](./ROADMAP.md). Top priorities:
 
-- Updated continuously via the [Contextix Platform](https://contextix.io)
-- No pipeline setup required
-- Higher signal quality (cross-validated, human-reviewed edges)
-- Additional domains (energy, geopolitics, biotech)
-
-```json
-{
-  "mcpServers": {
-    "contextix": {
-      "command": "npx",
-      "args": ["contextix", "serve", "--hosted"],
-      "env": { "CONTEXTIX_API_KEY": "your-key" }
-    }
-  }
-}
-```
-
-Star this repo to be notified at launch.
+1. **Connectors**: RSS (shipping) → markdown vault → URL fetch → OpenAPI
+2. **Agentic extraction**: replace regex parse with Haiku-based entity/relation extraction
+3. **Bring-your-own-model**: OpenAI, Ollama, local LLM support
+4. **Graph query depth**: PageRank, temporal decay, contradiction detection
+5. **Hosted graph** (later): optional `--hosted` mode pulls curated crypto/AI graph from contextix.io
 
 ---
 
 ## Contributing
 
-See [CONTRIBUTING.md](./CONTRIBUTING.md).
+See [`CONTRIBUTING.md`](./CONTRIBUTING.md). Highest-impact areas:
 
-The highest-impact contributions:
+- **New connectors** — every source type is one function in `src/ingest/`
+- **Extraction prompts** — improve agentic entity/relation extraction
+- **Query algorithms** — `src/graph/query.ts` (PageRank, confidence propagation, temporal decay)
+- **Seed graph** — verified events in `data/seed-graph.json`
 
-- **New domain agents** in `agents/` — energy, geopolitics, biotech, regulatory
-- **Causal rules** — domain-specific heuristics for edge inference
-- **Graph query algorithms** — `src/graph/query.ts` (PageRank, temporal decay, confidence propagation)
-- **Seed data quality** — `data/seed-graph.json` (verified events, sourced edges)
-- **New data source integrations** — FRED, arXiv, SEC filings, Polymarket
-
-If you're adding a new domain, start by defining its entity types and causal rule primitives in `agents/`.
+Star the repo if this is the graph tool you wanted to exist. File issues for connectors you'd use.
 
 ---
 
 ## License
 
-MIT — core graph engine and CLI.
-
-The hosted graph and synthesis pipeline are proprietary services.
+MIT.

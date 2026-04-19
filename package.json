@@ -1,7 +1,7 @@
 {
   "name": "contextix",
-  "version": "0.2.0",
-  "description": "Open-source cross-domain signal graph for AI agents. Give your agent world context.",
+  "version": "0.3.0",
+  "description": "CLI toolkit for agentic AI. Ingest any source (RSS, markdown, URLs) into a queryable knowledge graph.",
   "type": "module",
   "main": "./dist/server.js",
   "types": "./dist/server.d.ts",
@@ -20,15 +20,17 @@
     "typecheck": "tsc --noEmit"
   },
   "keywords": [
-    "mcp",
+    "cli",
+    "ingest",
     "knowledge-graph",
-    "signal-graph",
+    "agentic",
     "ai-agents",
+    "mcp",
     "claude-code",
-    "cross-domain",
-    "crypto",
-    "macro",
-    "causal-graph"
+    "typescript",
+    "rss",
+    "markdown",
+    "obsidian"
   ],
   "license": "MIT",
   "repository": {
@@ -38,15 +40,17 @@
   "files": [
     "dist",
     "data",
-    "agents",
+    "examples",
     "README.md",
     "LICENSE",
     "CONTRIBUTING.md"
   ],
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.90.0",
     "@modelcontextprotocol/sdk": "^1.12.1",
     "@supabase/supabase-js": "^2.103.3",
     "commander": "^13.1.0",
+    "fast-xml-parser": "^5.7.1",
     "zod": "^3.24.4"
   },
   "devDependencies": {
