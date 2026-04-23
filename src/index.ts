@@ -76,6 +76,35 @@ program
   });
 
 program
+  .command("graph-stats")
+  .description("Print counts from the local graph (events, entities, relations, domains, orphans)")
+  .option("-d, --data-dir <path>", "Data directory override")
+  .option("--json", "Output JSON instead of text", false)
+  .action(async (opts) => {
+    const { loadConfig } = await import("./config.js");
+    const { LocalJsonStore } = await import("./graph/store.js");
+    const { computeGraphStats } = await import("./tools/graph-stats.js");
+
+    const config = loadConfig({ dataDir: opts.dataDir });
+    const store = new LocalJsonStore(config.graphFile);
+    const stats = await computeGraphStats(store);
+
+    if (opts.json) {
+      process.stdout.write(JSON.stringify(stats, null, 2) + "\n");
+      return;
+    }
+
+    const lines = [
+      `events:            ${stats.events}`,
+      `entities:          ${stats.entities}`,
+      `active relations:  ${stats.activeRelations}`,
+      `domains:           ${stats.domains.join(", ")}`,
+      `orphan nodes:      ${stats.orphanNodes}`,
+    ];
+    process.stdout.write(lines.join("\n") + "\n");
+  });
+
+program
   .command("signals")
   .description("Print recent signals from the local graph")
   .option("-d, --domain <domain>", "Filter by domain (crypto, macro, ai, media)")
