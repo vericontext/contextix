@@ -19,9 +19,14 @@ export async function computeGraphStats(store: GraphStore): Promise<GraphStats> 
 
   let events = 0;
   let entities = 0;
+  const domains = new Set<string>();
   for (const node of graph.nodes) {
     if (node.type === "event") events++;
     else if (node.type === "entity") entities++;
+    // Derive domains from nodes directly so stats reflect the current
+    // graph. `graph.meta.domains` is not refreshed by `addNodes`, so it
+    // can go stale on graphs built via the normal ingest path.
+    if (node.domain) domains.add(node.domain);
   }
 
   const connected = new Set<string>();
@@ -35,7 +40,7 @@ export async function computeGraphStats(store: GraphStore): Promise<GraphStats> 
     events,
     entities,
     activeRelations: graph.edges.length,
-    domains: [...graph.meta.domains],
+    domains: [...domains].sort(),
     orphanNodes,
   };
 }
