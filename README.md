@@ -124,6 +124,7 @@ contextix signals --domain crypto -t 7d
 contextix why "<event>"                 # Causal chain (BFS backward)
 contextix connect "<a>" "<b>"           # Shortest path between entities
 contextix entities --search "fed"       # Entity lookup
+contextix graph-stats                   # Local graph counts and orphan nodes
 ```
 
 Output is human-readable by default. `--json` for piping.

@@ -108,6 +108,28 @@ program
   });
 
 program
+  .command("graph-stats")
+  .description("Print counts from the local graph")
+  .option("--data-dir <path>", "Data directory override")
+  .option("--json", "Output JSON instead of text")
+  .action(async (opts) => {
+    const { loadConfig } = await import("./config.js");
+    const { LocalJsonStore } = await import("./graph/store.js");
+    const { formatGraphStats, getGraphStats } = await import("./graph/stats.js");
+
+    const config = loadConfig({ dataDir: opts.dataDir });
+    const store = new LocalJsonStore(config.graphFile);
+    const graph = await store.load();
+    const stats = getGraphStats(graph);
+
+    if (opts.json) {
+      console.log(JSON.stringify(stats, null, 2));
+    } else {
+      console.log(formatGraphStats(stats));
+    }
+  });
+
+program
   .command("parse")
   .description("Parse text from stdin into graph fragment JSON on stdout")
   .action(async () => {
