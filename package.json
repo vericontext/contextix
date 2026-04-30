@@ -1,6 +1,6 @@
 {
   "name": "contextix",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "CLI toolkit for agentic AI. Ingest any source (RSS, markdown, URLs) into a queryable knowledge graph.",
   "type": "module",
   "main": "./dist/server.js",
